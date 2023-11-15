@@ -12,7 +12,7 @@ base_data <- tibble::tibble(mean  = c(0.578, 0.165, 0.246, 0.700, 0.348, 0.139, 
 
 
 #画出常规森林图
-#估计值，可信区间的上下限的变量名称需要为mean,lower,higher
+#估计值，可信区间的上下限的变量名称需要为mean,lower,upper
 base_data |>
   forestplot(labeltext = c(study, deaths_steroid, deaths_placebo, OR),
              clip = c(0.1, 2.5),
