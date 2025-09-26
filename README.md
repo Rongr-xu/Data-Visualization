@@ -1,2 +1,2 @@
-# Data-Visualization
-These packages were commonly used to visualize results of regression models.
+## 数据可视化
+R packages used to visualize Regression.
