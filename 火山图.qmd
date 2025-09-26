@@ -1,0 +1,42 @@
+---
+title: "火山图"
+format: html
+editor: visual
+---
+
+```{r}
+library(ggVolcano)
+data(deg_data)
+```
+
+Step add_regulate 函数确定上调还是下调基因 ggvolcano 函数进行画图，主要参数为label_number,pointSize等
+
+```{r}
+# add_regulate 参数
+# 增加一列描述上调还是下调基因
+data <- add_regulate(deg_data, log2FC_name = "log2FoldChange",
+                     fdr_name = "padj",log2FC = 0, fdr = 0.05)
+
+# plot
+ggvolcano(data, x = "log2FoldChange", y = "padj",
+          label = "row", label_number = 10, output = FALSE)
+ggvolcano(data, x = "log2FoldChange", y = "padj",pointSize = 2,
+          label = "row", label_number = 10,
+          output = FALSE,legend_title = "Regulation")
+
+# 修改散点的颜色和描边
+
+p1 <- ggvolcano(data, x = "log2FoldChange", y = "padj",
+          fills = c("#e94234","#b4b4d8","#269846"),
+          colors = c("#e94234","#b4b4d8","#269846"),
+          label = "row", label_number = 10, output = FALSE)
+
+# 渐变火山图
+gradual_volcano(deg_data, x = "log2FoldChange", y = "padj",
+                label = "row", label_number = 10, output = FALSE)
+
+gradual_volcano(deg_data, x = "log2FoldChange", y = "padj",
+                label = "row", label_number = 10, 
+                output = FALSE)
+
+```
